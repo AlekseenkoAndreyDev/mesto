@@ -16,3 +16,11 @@
     opacity: 0.8;
     cursor: pointer;
 }
+
+@media screen and (max-width: 767px) {
+    .popup__input-button {
+        margin-top: 45px;
+        width: 238px;
+        align-self: center;
+    }
+}

@@ -18,6 +18,6 @@
 * Редакитрование своего профиля через форму с двумя инпутами;
 * Отметка "Нравится" с активным состоянием.
 
-Ссылка на мой проект на Github Pages ["Путшествие по России"](https://alekseenkoandreydev.github.io/russian-travel/index.html).
+Ссылка на мой проект на Github Pages ["Mesto.Russia"](https://alekseenkoandreydev.github.io/mesto/index.html).
 
 **2022 | Алексеенко Андрей | Яндекс.Практикум**
