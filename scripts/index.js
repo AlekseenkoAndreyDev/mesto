@@ -6,13 +6,6 @@ let nameValue = document.querySelector('.popup__input-text_name');
 let aboutValue = document.querySelector('.popup__input-text_about');
 let profileName = document.querySelector('.profile__title');
 let profileAbout = document.querySelector('.profile__subtitle');
-let likeButtons = document.querySelectorAll('.element__like-button');
-
-for (let i = 0; i < likeButtons.length; i++) {
-    likeButtons[i].addEventListener('click', function() {
-        likeButtons[i].classList.toggle('element__like-button_state_active');
-    });
-}
 
 openPopupButton.onclick = function() {
     nameValue.value = profileName.textContent;
