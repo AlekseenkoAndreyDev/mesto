@@ -1,0 +1,18 @@
+.popup__input-button {
+    margin: 48px 0 0 0;
+    padding: 0;
+    width: 358px;
+    height: 50px;
+    background: black;
+    color: white;
+    border: 0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    border-radius: 2px;
+}
+
+.popup__input-button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
