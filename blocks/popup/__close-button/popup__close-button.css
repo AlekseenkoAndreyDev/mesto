@@ -4,6 +4,12 @@
     top: calc(50% - (330px / 2) - 40px);
     width: 32px;
     height: 32px;
+    border: none;
+    background: none;
+    display: flex;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
 }
 
 .popup__close-button:hover {
