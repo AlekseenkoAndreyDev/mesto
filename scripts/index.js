@@ -1,11 +1,11 @@
-let editPopup = document.querySelector('.popup_editProfile');
-let addPopup = document.querySelector('.popup_addCard');
+let editPopup = document.querySelector('.popup_type_editProfile');
+let addPopup = document.querySelector('.popup_type_addCard');
 let openEditPopupButton = document.querySelector('.profile__edit-button');
 let openAddPopupButton = document.querySelector('.profile__add-button');
-let closeEditPopupButton = document.querySelector('.popup_editProfile__close-button');
-let closeAddPopupButton = document.querySelector('.popup_addProfile__close-button');
-let editPopupForm = document.querySelector('.popup_editProfile__form');
-let addPopupForm = document.querySelector('.popup_addCard__form');
+let closeEditPopupButton = document.querySelector('.popup__close-button_type_editProfile');
+let closeAddPopupButton = document.querySelector('.popup__close-button_type_addProfile');
+let editPopupForm = document.querySelector('.popup__form_type_editProfile');
+let addPopupForm = document.querySelector('.popup__form_type_addCard');
 let nameValue = document.querySelector('.popup__input-text_content_name');
 let aboutValue = document.querySelector('.popup__input-text_content_about');
 let nameCard = document.querySelector('.popup__input-text_content_nameCard');
@@ -86,7 +86,7 @@ function createCard(name, link) {
       cardElement.remove();
     }
 
-    const imagePopup = document.querySelector('.popup_imageFs');
+    const imagePopup = document.querySelector('.popup_type_imageFs');
     const imagePopupImage = document.querySelector('.popup__image');
     const imagePopupSubtitle = document.querySelector('.popup__subtitle');
     const imagePopupCloseButton = document.querySelector('.popup__close-button_imageFs');
