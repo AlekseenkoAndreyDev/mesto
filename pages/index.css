@@ -25,18 +25,23 @@
 @import url(../blocks/element/__description/element__description.css);
 @import url(../blocks/element/__title/element__title.css);
 @import url(../blocks/element/__like-button/element__like-button.css);
-@import url(../blocks/element/__like-image/element__like-image.css);
 @import url(../blocks/element/__like-button/_state/element__like-button_state_active.css);
+@import url(../blocks/element/__remove/element__remove.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__text/footer__text.css);
 
 @import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/_imageFs/popup_imageFs.css);
 @import url(../blocks/popup/_state/popup_state_opened.css);
 @import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/__container/_imageFs/popup__container_imageFs.css);
 @import url(../blocks/popup/__title/popup__title.css);
+@import url(../blocks/popup/__subtitle/popup__subtitle.css);
+@import url(../blocks/popup/__image/popup__image.css);
 @import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/__input-text/popup__input-text.css);
 @import url(../blocks/popup/__input-button/popup__input-button.css);
 @import url(../blocks/popup/__close-button/popup__close-button.css);
+@import url(../blocks/popup/__close-button/_imageFs/popup__close-button_imageFs.css);
 @import url(../blocks/popup/__close-image/popup__close-image.css);

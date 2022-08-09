@@ -1,0 +1,13 @@
+.popup__close-button_imageFs {
+    position: relative;
+    align-self: flex-end;
+    top: -8px;
+    left: 40px;
+}
+
+@media screen and (max-width:767px) {
+    .popup__close-button_imageFs {
+        top: -16px;
+        left: 0;
+    }
+}

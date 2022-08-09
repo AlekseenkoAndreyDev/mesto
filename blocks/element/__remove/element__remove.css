@@ -1,16 +1,19 @@
-.element__like-button {
-    width: 22px;
+.element__remove {
+    width: 18px;
     height: 19px;
     border: none;
     background: none;
-    display: flex;
+    z-index: 1;
+    position: absolute;
+    top: 20px;
+    right: 20px;
     justify-content: center;
-    background-image: url(../../../images/like-button.svg);
+    background-image: url(../../../images/Trash.svg);
     opacity: 1;
     transition: opacity 0.2s ease-in-out;
 }
 
-.element__like-button:hover {
+.element__remove:hover {
     opacity: 0.5;
     cursor: pointer;
 }
