@@ -1,4 +1,4 @@
-.popup__close-button_imageFs {
+.popup__close-button_type_image-fs {
     position: relative;
     align-self: flex-end;
     top: -8px;
@@ -6,7 +6,7 @@
 }
 
 @media screen and (max-width:767px) {
-    .popup__close-button_imageFs {
+    .popup__close-button_type_image-fs {
         top: -16px;
         left: 0;
     }
