@@ -16,8 +16,8 @@ const aboutInput = document.querySelector('.popup__input-text_content_about');
 const cardNameInput = document.querySelector('.popup__input-text_content_name-card');
 const cardLinkInput = document.querySelector('.popup__input-text_content_link-card');
 
-let profileName = document.querySelector('.profile__title');
-let profileAbout = document.querySelector('.profile__subtitle');
+const profileName = document.querySelector('.profile__title');
+const profileAbout = document.querySelector('.profile__subtitle');
 
 const templateCard = document.querySelector('#element-template').content.querySelector('.element');
 const cardsList = document.querySelector('.elements');
