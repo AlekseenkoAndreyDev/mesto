@@ -25,6 +25,8 @@ const cardsList = document.querySelector('.elements');
 const imagePopupImageFs = document.querySelector('.popup__image');
 const subtitlePopupImageFs = document.querySelector('.popup__subtitle');
 
+const popupOverlayList = Array.from(document.querySelectorAll('.popup__overlay'));
+
 const initialCards = [
   {
     name: 'Архыз',
@@ -52,12 +54,45 @@ const initialCards = [
   }
 ];
 
+function escClosePopupHandler(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_state_opened')
+    closePopup(openedPopup)
+  };
+};
+
+function addEscClosePopupHandler() {
+document.addEventListener('keydown', escClosePopupHandler)
+}
+
+function deleteEscClosePopupHandler() {
+document.removeEventListener('keydown', escClosePopupHandler)
+}
+
 function openPopup(item){
   item.classList.add('popup_state_opened');
+  addEscClosePopupHandler();
+  const button = item.querySelector('.popup__input-button');
+  setButtonDisabled(button, validationConfig);
 };
 
 function closePopup(item){
   item.classList.remove('popup_state_opened');
+  formReset(item);
+  deleteEscClosePopupHandler()
+}
+
+function formReset(item){
+  const itemForm = item.querySelector('.popup__form');
+  itemForm.reset();
+};
+
+function setPopupCloseOverlayHandlers(overlays) {
+  overlays.forEach(function(overlay){
+    overlay.addEventListener('click', function(){
+      closePopup(overlay.parentNode);
+    });
+  });
 };
 
 openButtonPopupEdit.addEventListener ('click', function() {
@@ -104,10 +139,10 @@ function createCard(name, link) {
       cardElement.remove();
     });
     cardImage.addEventListener ('click', function() {
-      openPopup(popupImageFs);
       imagePopupImageFs.src = link;
       imagePopupImageFs.alt = 'картинка ' + name;
       subtitlePopupImageFs.textContent = name;
+      openPopup(popupImageFs);
     });
       
     cardTitle.textContent = name;
@@ -127,6 +162,7 @@ function addCreateCardListener(){
     evt.preventDefault();
     renderCard(cardNameInput.value, cardLinkInput.value);
     closePopup(popupAdd);
+    popupAddForm.reset();
   });
 }
 
@@ -136,6 +172,9 @@ function createInitialCards() {
     });
 };
 
+
 addCreateCardListener();
 
 createInitialCards();
+
+setPopupCloseOverlayHandlers(popupOverlayList);

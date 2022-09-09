@@ -40,29 +40,36 @@
             <img src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg" alt="картинка" class="popup__image">
             <h3 class="popup__subtitle"></h3>
         </div>
+        <div class="popup__overlay"></div>
     </div>
 
     <div class="popup popup_type_edit-profile">
         <div class="popup__container">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form popup__form_type_edit-profile" name="popupForm">
-                <input class="popup__input-text popup__input-text_content_name" placeholder="Имя" type="text" name="name">
-                <input class="popup__input-text popup__input-text_content_about" placeholder="О себе" type="text" name="about">
-                <input class="popup__input-button" value="Сохранить" type="submit">
+            <form class="popup__form popup__form_type_edit-profile" name="popupForm" novalidate>
+                <input id="username" class="popup__input-text popup__input-text_content_name" placeholder="Имя" type="text" name="name" required minlength="2" maxlength="40">
+                <span id="username-error" class="popup__error"></span>
+                <input id="userabout" class="popup__input-text popup__input-text_content_about" placeholder="О себе" type="text" name="about" required minlength="2" maxlength="200">
+                <span id="userabout-error" class="popup__error"></span>
+                <button class="popup__input-button" value="Сохранить" type="submit">Сохранить</button>
             </form>
         </div>
+        <div class="popup__overlay"></div>
         <button type="button" class="popup__close-button popup__close-button_type_editProfile" aria-label="Закрыть"><img src="./images/close-button.svg" alt="Кнопка закрытия формы" class="popup__close-image"></button>
     </div>
 
     <div class="popup popup_type_add-card">
         <div class="popup__container">
             <h2 class="popup__title">Новое место</h2>
-            <form class="popup__form popup__form_type_addCard" name="popupForm">
-                <input class="popup__input-text popup__input-text_content_name-card" placeholder="Название" type="text" name="name">
-                <input class="popup__input-text popup__input-text_content_link-card" placeholder="Ссылка на картинку" type="url" name="about">
-                <input class="popup__input-button" value="Создать" type="submit">
+            <form class="popup__form popup__form_type_addCard" name="popupForm" novalidate>
+                <input id="cardname" class="popup__input-text popup__input-text_content_name-card" placeholder="Название" type="text" name="name" required minlength="2" maxlength="30">
+                <span id="cardname-error" class="popup__error"></span>
+                <input id="cardlink" class="popup__input-text popup__input-text_content_link-card" placeholder="Ссылка на картинку" type="url" name="about" required>
+                <span id="cardlink-error" class="popup__error"></span>
+                <button class="popup__input-button" type="submit">Создать</button>
             </form>
         </div>
+        <div class="popup__overlay"></div>
         <button type="button" class="popup__close-button popup__close-button_type_addProfile" aria-label="Закрыть"><img src="./images/close-button.svg" alt="Кнопка закрытия формы" class="popup__close-image"></button>
     </div>
 
@@ -81,7 +88,8 @@
         </article>
     </template>
     
-    <script src="./scripts/index.js" type="text/javascript" defer></script>
+    <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/validate.js" defer></script>
 </body>
 </html>
 
