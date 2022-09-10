@@ -69,9 +69,6 @@ function setHandlers(form, config) {
 function enableValidation(config){
     const forms = Array.from(document.querySelectorAll(config.formSelector))
     forms.forEach(function(form) {
-        form.addEventListener('sumbit', function(evt){
-            evt.preventDefault()
-        })
         setHandlers(form, config)
     })
 };
