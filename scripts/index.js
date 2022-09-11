@@ -61,34 +61,29 @@ function closeEscPopupHandler(evt) {
   };
 };
 
-function addcloseEscPopupHandler() {
+function addCloseEscPopupHandler() {
 document.addEventListener('keydown', closeEscPopupHandler)
 }
 
-function deletecloseEscPopupHandler() {
+function deleteCloseEscPopupHandler() {
 document.removeEventListener('keydown', closeEscPopupHandler)
 }
 
 function openPopup(item){
   item.classList.add('popup_state_opened');
-  addcloseEscPopupHandler();
+  addCloseEscPopupHandler();
 };
 
 function closePopup(item){
   item.classList.remove('popup_state_opened');
-  deletecloseEscPopupHandler()
+  deleteCloseEscPopupHandler()
 }
 
 function setPopupCloseOverlayHandlers(popupList){
   popupList.forEach(function(popup){
     popup.addEventListener('mousedown', function(evt){
       if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close-button')) {
-        console.log(1)
         closePopup(popup)
-        if (popup.querySelector('.popup__form')){
-          const popupForm = popup.querySelector('.popup__form');
-          popupForm.reset();
-        }
     }
     })
   })
@@ -105,17 +100,16 @@ buttonOpenPopupEdit.addEventListener ('click', function() {
 buttonOpenPopupAdd.addEventListener ('click', function() {
   const button = popupAdd.querySelector('.popup__input-button')
   setButtonDisabled(button, validationConfig);
+  popupAddForm.reset();
   openPopup(popupAdd);
 });
 
 buttonClosePopupEdit.addEventListener ('click', function() {
   closePopup(popupEdit);
-  popupEditForm.reset();
 });
 
 buttonClosePopupAdd.addEventListener ('click', function() {
   closePopup(popupAdd);
-  popupAddForm.reset();
 });
 
 buttonClosePopupImageFs.addEventListener ('click', function() {
@@ -167,7 +161,6 @@ function addCreateCardListener(){
     evt.preventDefault();
     renderCard(cardNameInput.value, cardLinkInput.value);
     closePopup(popupAdd);
-    popupAddForm.reset();
   });
 }
 
