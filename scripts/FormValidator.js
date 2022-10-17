@@ -26,7 +26,6 @@ export default class FormValidator {
     }
 
     _validateInput(input){
-        /* const error = this._form.querySelector(`#${input.id}-error`); */
         if (!input.validity.valid) {
             this._setError(input);
         } else {

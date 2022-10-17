@@ -1,30 +1,33 @@
-import { imagePopupImageFs, subtitlePopupImageFs, popupImageFs, openPopup, templateCard } from "./index.js";
-
 export default class Card {
   
-    constructor(name, link){
+    constructor(name, link, template, handleCardClick){
       this._name = name;
       this._link = link;
+      this._template = template;
+      this._handleCardClick = handleCardClick;
     }
   
     _getTemplate(){
-      const cardElement = templateCard.cloneNode(true);
-      return cardElement;
+      const cardTemplate = document.querySelector(this._template).content.querySelector('.element').cloneNode(true);
+      return cardTemplate;
     }
   
     generateCard(){
       this._element = this._getTemplate();
+      this._elementImage = this._element.querySelector('.element__image');
       this._setEventListeners();
   
       this._element.querySelector('.element__title').textContent = this._name;
-      this._element.querySelector('.element__image').src = this._link;
-      this._element.querySelector('.element__image').alt = `картинка ${this._name}`;
+      this._elementImage.src = this._link;
+      this._elementImage.alt = `картинка ${this._name}`;
   
       return this._element;
     }
   
     _setEventListeners(){
-      this._element.querySelector('.element__like-button').addEventListener('click', () => {
+      this._elementLikeButton = this._element.querySelector('.element__like-button');
+
+      this._elementLikeButton.addEventListener('click', () => {
         this._handleLikeButtonClick();
       });
   
@@ -32,25 +35,18 @@ export default class Card {
         this._handleRemoveButtonClick();
       });
   
-      this._element.querySelector('.element__image').addEventListener('click', () => {
-        this._handleImageClick();
+      this._elementImage.addEventListener('click', () => {
+        this._handleCardClick(this._name, this._link);
       });
     }
   
     _handleLikeButtonClick() {
-      this._element.querySelector('.element__like-button').classList.toggle('element__like-button_state_active');
+      this._elementLikeButton.classList.toggle('element__like-button_state_active');
     }
   
     _handleRemoveButtonClick() {
       this._element.remove();
       this._element = null;
-    }
-  
-    _handleImageClick() {
-      imagePopupImageFs.src = this._link;
-      imagePopupImageFs.alt = `картинка ${this._name}`;
-      subtitlePopupImageFs.textContent = this._name;
-      openPopup(popupImageFs);
     }
   
   }

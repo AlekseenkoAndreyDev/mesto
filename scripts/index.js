@@ -1,8 +1,6 @@
 import Card from "./Card.js";
 import FormValidator from './FormValidator.js';
 
-export { imagePopupImageFs, subtitlePopupImageFs, popupImageFs, templateCard };
-
 const popupEdit = document.querySelector('.popup_type_edit-profile');
 const popupAdd = document.querySelector('.popup_type_add-card');
 const popupImageFs = document.querySelector('.popup_type_image-fs');
@@ -24,7 +22,6 @@ const cardLinkInput = document.querySelector('.popup__input-text_content_link-ca
 const profileName = document.querySelector('.profile__title');
 const profileAbout = document.querySelector('.profile__subtitle');
 
-const templateCard = document.querySelector('#element-template').content.querySelector('.element');
 const cardsList = document.querySelector('.elements');
 
 const imagePopupImageFs = document.querySelector('.popup__image');
@@ -76,6 +73,13 @@ function runValidation() {
   validatePopupAdd.enableValidation();
 };
 
+function handleCardClick(name, link) {
+  subtitlePopupImageFs.textContent = name;
+  imagePopupImageFs.setAttribute("src", link);
+  imagePopupImageFs.setAttribute("alt", `картинка ${name}`);
+  openPopup(popupImageFs);
+};
+
 function closeEscPopupHandler(evt) {
   if (evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_state_opened')
@@ -114,15 +118,19 @@ function setPopupCloseOverlayHandlers(popupList){
 buttonOpenPopupEdit.addEventListener ('click', function() {
   nameInput.value = profileName.textContent;
   aboutInput.value = profileAbout.textContent;
-  const button = popupEdit.querySelector('.popup__input-button')
   openPopup(popupEdit);
 });
 
 buttonOpenPopupAdd.addEventListener ('click', function() {
-  const button = popupAdd.querySelector('.popup__input-button')
   popupAddForm.reset();
   openPopup(popupAdd);
 });
+
+/* Придется оставить обработчики кнопок закрытия попапов,
+так как они в разметке внутри контейнера с попапом,
+т.е. не попадают в зону оверлея. Сделал так, чтобы крестик был привязан
+к попапу и всегда отображался в верном месте, вне зависимости от размера
+и типа контента в попапе. */
 
 buttonClosePopupEdit.addEventListener ('click', function() {
   closePopup(popupEdit);
@@ -136,6 +144,7 @@ buttonClosePopupImageFs.addEventListener ('click', function() {
   closePopup(popupImageFs);
 });
 
+
 function handleSubmitPopupEditForm (evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
@@ -145,10 +154,12 @@ function handleSubmitPopupEditForm (evt) {
 
 popupEditForm.addEventListener('submit', handleSubmitPopupEditForm);
 
+function createCard(name, link, template) {
+  return new Card(name, link, template, handleCardClick).generateCard();
+}
+
 function renderCard(name, link) {
-  const newCard = new Card (name, link);
-  const newCardElement = newCard.generateCard();
-  cardsList.prepend(newCardElement);
+  cardsList.prepend(createCard(name, link, "#element-template"));
 }
 
 function addCreateCardListener(){
