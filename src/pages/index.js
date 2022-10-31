@@ -28,7 +28,7 @@ import {  /* popupEdit,
 const popupImageFullScreen = new PopupWithImage('.popup_type_image-fs');
 
 const userInfo = new UserInfo({ name: '.profile__title', about: '.profile__subtitle',});
-const popupEditProfile = new PopupWithForm('.popup_type_edit-profile', submitForm);
+const popupEditProfile = new PopupWithForm('.popup_type_edit-profile', submitEditProfileForm);
 const popupAddCard = new PopupWithForm('.popup_type_add-card', renderCard);
 
 const validatePopupEdit = new FormValidator(validationConfig, popupEditForm);
@@ -47,7 +47,7 @@ function handleButtonOpenAdd(){
   validatePopupAdd.resetValidation();
 }
 
-function submitForm(data){
+function submitEditProfileForm(data){
   userInfo.setUserInfo(data.name, data.about);
   popupEditProfile.closePopupWithForm();
 }
