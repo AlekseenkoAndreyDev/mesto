@@ -4,28 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mesto</title>
-    <link rel="stylesheet" href="./pages/index.css">
+    <!-- <link rel="stylesheet" href="./pages/index.css"> -->
 </head>
 <body class="body">
     
     <header class="header">
         <div class="header__content">
-            <img src="./images/header__logo.svg" alt="логотип Mesto" class="header__logo">
+            <img src="<%=require('./images/header__logo.svg')%>"  alt="логотип Mesto" class="header__logo">
         </div>
     </header>
 
     <main class="page">
         
         <section class="profile">
-            <img src="./images/profile__image.png" alt="аватар профиля" class="profile__avatar">
+            <img src="<%=require('./images/profile__image.png')%>" alt="аватар профиля" class="profile__avatar">
             <div class="profile__info">
                 <div class="profile__text">
                     <h1 class="profile__title">Жак-Ив Кусто</h1>
                     <p class="profile__subtitle">Исследователь океана</p>
                 </div>
-                <button type="button" aria-label="Редактировать профиль" class="profile__edit-button"><img src="./images/edit-button.svg" alt="кнопка редактирования профиля" class="profile__edit-icon"></button>
+                <button type="button" aria-label="Редактировать профиль" class="profile__edit-button"><img src="<%=require('./images/edit-button.svg')%>" alt="кнопка редактирования профиля" class="profile__edit-icon"></button>
             </div>
-            <button type="button" class="profile__add-button"><img src="./images/add-button.svg" alt="кнопка Добавить" class="profile__add-icon"></button>
+            <button type="button" class="profile__add-button"><img src="<%=require('./images/add-button.svg')%>" alt="кнопка Добавить" class="profile__add-icon"></button>
         </section>
 
         <section class="elements">
@@ -36,7 +36,7 @@
 
     <div class="popup popup_type_image-fs">
         <div class="popup__container-image-fs">
-            <button type="button" class="popup__close-button popup__close-button_type_image-fs" aria-label="Закрыть"><img src="./images/close-button.svg" alt="Кнопка закрытия картинки" class="popup__close-image"></button>
+            <button type="button" class="popup__close-button popup__close-button_type_image-fs" aria-label="Закрыть"><img src="<%=require('./images/close-button.svg')%>" alt="Кнопка закрытия картинки" class="popup__close-image"></button>
             <img src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg" alt="картинка" class="popup__image">
             <h3 class="popup__subtitle"></h3>
         </div>
@@ -53,7 +53,7 @@
                 <button class="popup__input-button" value="Сохранить" type="submit">Сохранить</button>
             </form>
         </div>
-        <button type="button" class="popup__close-button popup__close-button_type_editProfile" aria-label="Закрыть"><img src="./images/close-button.svg" alt="Кнопка закрытия формы" class="popup__close-image"></button>
+        <button type="button" class="popup__close-button popup__close-button_type_editProfile" aria-label="Закрыть"><img src="<%=require('./images/close-button.svg')%>" alt="Кнопка закрытия формы" class="popup__close-image"></button>
     </div>
 
     <div class="popup popup_type_add-card">
@@ -67,14 +67,14 @@
                 <button class="popup__input-button" type="submit">Создать</button>
             </form>
         </div>
-        <button type="button" class="popup__close-button popup__close-button_type_addProfile" aria-label="Закрыть"><img src="./images/close-button.svg" alt="Кнопка закрытия формы" class="popup__close-image"></button>
+        <button type="button" class="popup__close-button popup__close-button_type_addProfile" aria-label="Закрыть"><img src="<%=require('./images/close-button.svg')%>" alt="Кнопка закрытия формы" class="popup__close-image"></button>
     </div>
 
     <footer class="footer">
         <p class="footer__text">&copy; 2022 Mesto Russia</p>
     </footer>
 
-    <template id="element-template">
+    <template class="element-template" id="element-template">
         <article class="element">
             <button type="button" class="element__remove" aria-label="Удалить"></button>
             <img src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg" alt="картинка" class="element__image">
@@ -85,8 +85,13 @@
         </article>
     </template>
     
-    <script type="module" src="./scripts/index.js"></script>
-    <script type="module" src="./scripts/FormValidator.js"></script>
-    <script type="module" src="./scripts/Card.js"></script>
+    <!-- <script type="module" src="./pages/index.js"></script>
+    <script type="module" src="./components/FormValidator.js"></script>
+    <script type="module" src="./components/Card.js"></script>
+    <script type="module" src="./components/Popup.js"></script>
+    <script type="module" src="./components/PopupWithForm.js"></script>
+    <script type="module" src="./components/PopupWithImage.js"></script>
+    <script type="module" src="./components/Section.js"></script>
+    <script type="module" src="./components/UserInfo.js"></script> -->
 </body>
 </html>
